@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">IPCServer</string>
+    <string name="last_connected_client_info">Last Connected Client Info</string>
+    <string name="no_connected_client">No Connected Client</string>
+    <string name="package_name">Client Package Name</string>
+    <string name="pid">Client Process ID</string>
+    <string name="data">Client Data</string>
+    <string name="ipc_method">IPC Method Used</string>
+</resources>
