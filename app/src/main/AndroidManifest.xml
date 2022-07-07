@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IPCServer">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -18,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!--"Exported service does not require permission" means that-->
         <!-- other (arbitrary) applications that the user has on his device can bind to your service and call whatever method they please that is exposed through your AIDL interface.-->
         <service
@@ -28,6 +30,20 @@
                 <action android:name="messengerExample"/>
             </intent-filter>
         </service>
+
+        <!--Receivers, by default, are exported and can receive broadcast sent by any other application.
+        For external receivers, a simple security layer can be created by defining permissions/action filters
+        in the <receiver> tag in the Manifest. Broadcasts that may come from applications that do not have
+         the necessary permission/action are prevented from being received this way.-->
+        <receiver android:name=".IPCBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.ipcclient"/>
+            </intent-filter>
+
+        </receiver>
+
     </application>
 
 </manifest>
