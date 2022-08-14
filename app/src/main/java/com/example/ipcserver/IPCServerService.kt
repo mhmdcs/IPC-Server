@@ -13,6 +13,9 @@ class IPCServerService : Service() {
         const val NOT_SENT = "No Data Sent"
     }
 
+    // ------------------------------------------------------------------------------------
+    // Aidl method
+
     // Create the binder object by extending from our generated Stub class, which itself extends Binder class
     // Here we will fill our AIDL methods. Note: If you are going to perform concurrent operations, Coroutines should be used in our AIDL methods.
     // AIDL IPC - Binder object to pass to the client
@@ -39,6 +42,8 @@ class IPCServerService : Service() {
 
     }
 
+    // ------------------------------------------------------------------------------------
+    // Messenger method
 
     // Messenger IPC - Messenger object contains binder that we will send to client
     private val mMessenger = Messenger(IncomingHandler())
@@ -68,6 +73,8 @@ class IPCServerService : Service() {
             msgFromClient.replyTo.send(msgToClient)
         }
     }
+
+    // ------------------------------------------------------------------------------------
 
 
     // Return our binder object to the client using the onBind() method. So they can communicate with this service.
